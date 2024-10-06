@@ -1,115 +1,73 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
-/*
-  Copyright (c) 2012 Julian Garnier
-  Licensed under the MIT license
-  Modified to include Keplerian orbital parameters
-*/
-/* ... (keeping the reset and basic styles unchanged) ... */
-
-.orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform-style: preserve-3d;
-  animation-name: orbit;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Keplerian orbit parameters */
-#mercury .orbit {
-  width: 8em;
-  height: 7.6em; /* Slightly elliptical */
-  margin-top: -3.8em;
-  margin-left: -4em;
-  animation-duration: 2.4s; /* Faster orbital period */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
 }
 
-#venus .orbit {
-  width: 15em;
-  height: 14.85em;
-  margin-top: -7.425em;
-  margin-left: -7.5em;
-  animation-duration: 6.2s;
+.container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
-#earth .orbit {
-  width: 20em;
-  height: 19.8em;
-  margin-top: -9.9em;
-  margin-left: -10em;
-  animation-duration: 10s; /* Base orbital period */
+.celestial-body {
+    position: absolute;
+    border-radius: 50%;
 }
 
-#mars .orbit {
-  width: 30em;
-  height: 29.4em;
-  margin-top: -14.7em;
-  margin-left: -15em;
-  animation-duration: 18.8s;
+.sun {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#jupiter .orbit {
-  width: 102em;
-  height: 100.98em;
-  margin-top: -50.49em;
-  margin-left: -51em;
-  animation-duration: 118.6s;
+.planet {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
 }
 
-#saturn .orbit {
-  width: 184em;
-  height: 181.32em;
-  margin-top: -90.66em;
-  margin-left: -92em;
-  animation-duration: 294.6s;
+.mercury {
+    top: 50%;
+    left: 40%;
 }
 
-#uranus .orbit {
-  width: 366em;
-  height: 362.34em;
-  margin-top: -181.17em;
-  margin-left: -183em;
-  animation-duration: 840s;
+.venus {
+    top: 50%;
+    left: 30%;
 }
 
-#neptune .orbit {
-  width: 568em;
-  height: 562.32em;
-  margin-top: -281.16em;
-  margin-left: -284em;
-  animation-duration: 1647.8s;
+.earth {
+    top: 50%;
+    left: 20%;
 }
 
-/* Update planet positions to account for elliptical orbits */
-.pos {
-  position: absolute;
-  top: 50%;
-  width: 2em;
-  height: 2em;
-  margin-top: -1em;
-  margin-left: -1em;
-  transform-style: preserve-3d;
-  animation-name: elliptical-orbit;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out; /* Simulate speed changes */
+.mars {
+    top: 50%;
+    left: 10%;
 }
 
-@keyframes elliptical-orbit {
-  0%, 100% {
-    transform: translateX(-2%) rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
-  }
-  25% {
-    transform: translateY(-1%) rotateX(-90deg) rotateY(270deg) rotateZ(0deg);
-  }
-  50% {
-    transform: translateX(2%) rotateX(-90deg) rotateY(180deg) rotateZ(0deg);
-  }
-  75% {
-    transform: translateY(1%) rotateX(-90deg) rotateY(90deg) rotateZ(0deg);
-  }
+.neos {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
 }
-
-/* ... (rest of the original CSS remains unchanged) ... *Danke für Ihr Interesse! Wir freuen uns auf weitere Zusammenarbeit.
