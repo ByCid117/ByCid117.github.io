@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orrery del Sistema Solar</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -15,6 +15,26 @@
         <div id="mars" class="planet mars"></div>
         <div id="neos" class="neos"></div>
     </div>
+
+    <!-- Botones para seleccionar el planeta -->
+    <div class="buttons">
+        <button onclick="selectPlanet('mercury')">Mercurio</button>
+        <button onclick="selectPlanet('venus')">Venus</button>
+        <button onclick="selectPlanet('earth')">Tierra</button>
+        <button onclick="selectPlanet('mars')">Marte</button>
+    </div>
+
+    <!-- Botones para seleccionar información a mostrar -->
+    <div class="info-buttons">
+        <button onclick="displayInfo('speed')">Velocidad Orbital</button>
+        <button onclick="displayInfo('distance')">Distancia al Sol</button>
+        <button onclick="displayInfo('size')">Tamaño Comparado al Sol</button>
+        <button onclick="displayInfo('images')">Imágenes</button>
+    </div>
+
+    <!-- Sección para mostrar la información -->
+    <div id="planet-info" class="planet-info"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
