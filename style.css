@@ -1,73 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.buttons, .info-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
+    margin: 10px;
 }
 
-.container {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    overflow: hidden;
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.celestial-body {
-    position: absolute;
-    border-radius: 50%;
-}
-
-.sun {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.planet {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.mercury {
-    top: 50%;
-    left: 40%;
-}
-
-.venus {
-    top: 50%;
-    left: 30%;
-}
-
-.earth {
-    top: 50%;
-    left: 20%;
-}
-
-.mars {
-    top: 50%;
-    left: 10%;
-}
-
-.neos {
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    width: 5px;
-    height: 5px;
-    background-color: white;
-    border-radius: 50%;
+.planet-info {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
 }
