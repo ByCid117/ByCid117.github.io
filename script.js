@@ -1,37 +1,42 @@
-// Orbital animation for planets
-const planets = document.querySelectorAll('.planet');
-const sun = document.getElementById('sun');
+$(window).load(function(){
 
-// Function to animate the planets in a circular motion
-function animateOrbits() {
-    planets.forEach((planet, index) => {
-        let angle = 0;
-        const radius = 100 + (index * 50); // Increment radius for each planet
-        setInterval(() => {
-            angle += 0.05; // Speed of rotation
-            const x = radius * Math.cos(angle) + 250; // Centered around the sun
-            const y = radius * Math.sin(angle) + 250;
-            planet.style.left = `${x}px`;
-            planet.style.top = `${y}px`;
-        }, 50); // Speed of the animation
+  var body = $("body"),
+      universe = $("#universe"),
+      solarsys = $("#solar-system");
+
+  var init = function() {
+    body.removeClass('view-2D opening').addClass("view-3D").delay(2000).queue(function() {
+      $(this).removeClass('hide-UI').addClass("set-speed");
+      $(this).dequeue();
     });
-}
+  };
 
-// Add some NEOs near the Earth
-const neos = document.getElementById('neos');
+  var setView = function(view) { universe.removeClass().addClass(view); };
 
-function addNEOs() {
-    let angle = 0;
-    const radius = 200; // NEO orbit radius
-    setInterval(() => {
-        angle += 0.1;
-        const x = radius * Math.cos(angle) + 250;
-        const y = radius * Math.sin(angle) + 250;
-        neos.style.left = `${x}px`;
-        neos.style.top = `${y}px`;
-    }, 100);
-}
+  $("#toggle-data").click(function(e) {
+    body.toggleClass("data-open data-close");
+    e.preventDefault();
+  });
 
-// Initialize animations
-animateOrbits();
-addNEOs();
+  $("#toggle-controls").click(function(e) {
+    body.toggleClass("controls-open controls-close");
+    e.preventDefault();
+  });
+
+  $("#data a").click(function(e) {
+    var ref = $(this).attr("class");
+    solarsys.removeClass().addClass(ref);
+    $(this).parent().find('a').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+
+  $(".set-view").click(function() { body.toggleClass("view-3D view-2D"); });
+  $(".set-zoom").click(function() { body.toggleClass("zoom-large zoom-close"); });
+  $(".set-speed").click(function() { setView("scale-stretched set-speed"); });
+  $(".set-size").click(function() { setView("scale-s set-size"); });
+  $(".set-distance").click(function() { setView("scale-d set-distance"); });
+
+  init();
+
+});
